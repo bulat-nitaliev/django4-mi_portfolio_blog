@@ -1,0 +1,14 @@
+<h1>Bulat has written {{ blogs.count }} blog{{ blogs.count|pluralize }}</h1>
+
+{% for blog in blogs %}
+
+<h2>{{ blog.title }}</h2>
+<p></p>
+<br>
+<img src="{{ blog.image.url }}" width="500" alt="">
+<br>
+
+<a href="{% url 'blog:detail' blog.id %}"><h4>{{ blog.text|truncatechars:100 }}</h4></a>
+<br>
+<br>
+{% endfor %}
