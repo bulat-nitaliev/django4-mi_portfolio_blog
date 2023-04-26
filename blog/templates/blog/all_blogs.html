@@ -1,9 +1,14 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+{% load static %}
+<img src="{% static 'blog/lampa.jpg' %}" width="300" height="300" > 
 <h1>Bulat has written {{ blogs.count }} blog{{ blogs.count|pluralize }}</h1>
+
 
 {% for blog in blogs %}
 
 <h2>{{ blog.title }}</h2>
-<p></p>
+<p>{{ blog.date|date:'l d m Y' }}</p>
 <br>
 <img src="{{ blog.image.url }}" width="500" alt="">
 <br>
@@ -12,3 +17,5 @@
 <br>
 <br>
 {% endfor %}
+
+{% endblock %}
